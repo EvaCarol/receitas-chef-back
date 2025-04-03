@@ -11,7 +11,10 @@ const MONGO_URI = process.env.MONGO_URI; // Pegando a URL do banco a partir do .
 
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: "https://receitasandchefs.netlify.app/", // Substitua pela URL do seu frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+ }));
 
 // Conectando ao MongoDB
 const connectDB = async () => {
